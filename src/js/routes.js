@@ -5,6 +5,7 @@ import 'firebase/database'
 import 'firebase/storage'
 import './config'
 import {signIn, signOut} from './auth'
+import savePhoto from './save_photo'
 
 // templates
 import tplHome from '../html/home.tpl.html'
@@ -38,6 +39,9 @@ const routes = () => {
             firebase.auth().onAuthStateChanged(user => {
                 if (user) {
                     main.innerHTML = tplAdminAuth
+                    // d.querySelector('.Admin-name').textContent = user.displayName
+                    // d.querySelector('.Admin-avatar').src = user.photoURL
+                    savePhoto()
                 } else {
                     main.innerHTML = tplAdmin
                 }
