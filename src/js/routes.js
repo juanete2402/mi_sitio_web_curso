@@ -7,6 +7,7 @@ import './config'
 import {signIn, signOut} from './auth'
 import savePhoto from './save_photo'
 import showPhotos from './show_photos'
+import deletePhoto from './delete_photo'
 
 // templates
 import tplHome from '../html/home.tpl.html'
@@ -54,6 +55,8 @@ const routes = () => {
             signIn()
         } else if (e.target.matches('#logout')) {
             signOut()
+        } else if (e.target.matches('.fa-trash')) {
+            deletePhoto(e.target.dataset.photo, e.target.dataset.id)
         }
     })
 }
