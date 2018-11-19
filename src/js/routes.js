@@ -15,6 +15,8 @@ import tplAbout from '../html/about.tpl.html'
 import tplContact from '../html/contact.tpl.html'
 import tplAdmin from '../html/admin.tpl.html'
 import tplAdminAuth from '../html/admin_auth.tpl.html'
+import aboutImg1 from '../img/fifi.jpg'
+import aboutImg2 from '../img/amor-de-ninos.jpg'
 
 const routes = () => {
 
@@ -31,12 +33,15 @@ const routes = () => {
         if (e.target.matches('a[href="#"]')) {
             e.preventDefault()
         }
-
         if (e.target.matches('#home')) {
             main.innerHTML = tplHome
             showPhotos()
         } else if (e.target.matches('#about')) {
             main.innerHTML = tplAbout
+            d.querySelector('.About-header').innerHTML = `
+                <img src="${aboutImg1}">
+                <img src="${aboutImg2}">
+            `
         } else if (e.target.matches('#contact')) {
             main.innerHTML = tplContact
         } else if (e.target.matches('#admin')) {
