@@ -6,6 +6,7 @@ import 'firebase/storage'
 import './config'
 import {signIn, signOut} from './auth'
 import savePhoto from './save_photo'
+import showPhotos from './show_photos'
 
 // templates
 import tplHome from '../html/home.tpl.html'
@@ -21,6 +22,7 @@ const routes = () => {
     // cargar otra pagina html
     d.addEventListener('DOMContentLoaded', e => {
         main.innerHTML = tplHome
+        showPhotos()
     })
 
     // click
@@ -31,6 +33,7 @@ const routes = () => {
 
         if (e.target.matches('#home')) {
             main.innerHTML = tplHome
+            showPhotos()
         } else if (e.target.matches('#about')) {
             main.innerHTML = tplAbout
         } else if (e.target.matches('#contact')) {
@@ -42,6 +45,7 @@ const routes = () => {
                     // d.querySelector('.Admin-name').textContent = user.displayName
                     // d.querySelector('.Admin-avatar').src = user.photoURL
                     savePhoto()
+                    showPhotos()
                 } else {
                     main.innerHTML = tplAdmin
                 }
