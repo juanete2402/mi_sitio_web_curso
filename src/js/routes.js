@@ -59,6 +59,13 @@ const routes = () => {
             deletePhoto(e.target.dataset.photo, e.target.dataset.id)
         }
     })
+
+    // change
+    d.addEventListener('change', e => {
+        if (e.target.matches('input[type="file"]')) {
+            d.querySelector('.Form-uploader input[type="text"]').value = e.target.value
+        }
+    })
 }
 
 export default routes
